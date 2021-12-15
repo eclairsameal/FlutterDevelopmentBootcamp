@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.teal,
         body: SafeArea(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CircleAvatar(
                 radius: 50.5,
@@ -37,8 +38,15 @@ class MyApp extends StatelessWidget {
                   letterSpacing: 2.5,  // 間距
                 ),
               ),
+              Divider(
+                height: 30,  // Divider框的高
+                thickness: 1,  // 線的粗細
+                indent: 50,  // 分隔器前緣的空白空間量
+                endIndent: 50,  // 分隔線後緣的空白空間量
+                color: Colors.teal.shade100,
+              ),
               Card(  // Container -> Card
-                color: Colors.white,
+                // color: Colors.white, // 預設是白色所以可以簡化
                 // padding: EdgeInsets.all(10.0),
                 margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
                 child: ListTile(
@@ -57,7 +65,7 @@ class MyApp extends StatelessWidget {
                 )
               ),
               Card(  // Container -> Card
-                color: Colors.white,
+                // color: Colors.white, // 預設是白色所以可以簡化
                 // padding: EdgeInsets.all(10.0),
                 margin: EdgeInsets.symmetric(horizontal: 25.0, vertical: 10.0),
                 child: ListTile(
