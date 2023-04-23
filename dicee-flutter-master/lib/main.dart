@@ -15,33 +15,31 @@ void main() {
   );
 }
 
-class DicePage extends StatelessWidget {
-  // var leftDiceNumber = 1;  // 熱載入不會重新加載這裡
-  // var rightDiceNumber = 1;
+class DicePage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {  // 熱載入只會在這個區間內
-    var leftDiceNumber = 3;
-    var rightDiceNumber = 4;
+  _DicePageState createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+  int leftDiceNumber = 1;
+  int rightDiceNumber = 1;
+  @override
+  Widget build(BuildContext context) {
     return Center(
       child: Row(
         children: <Widget>[
           Expanded(
-            // flex: 2,
-            // child: Image(
-            //   image: AssetImage('images/dice1.png')
-            // ),
             child: FlatButton(
               onPressed: (){
-                print("Left button got pressed.");
+                setState(() {  // 按下按鈕時要重新執行 build 來更新畫面
+                  leftDiceNumber = 5;
+                  // print("Left button got pressed.");
+                });
               },
               child: Image.asset('images/dice$leftDiceNumber.png'),
             ),
           ),
           Expanded(
-            // flex: 1,
-            // child: Image(
-            //     image: AssetImage('images/dice1.png')
-            // ),
             child: FlatButton(
               onPressed: (){
                 print("Right button got pressed.");
