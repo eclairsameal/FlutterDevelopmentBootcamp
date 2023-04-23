@@ -24,6 +24,16 @@ class DicePage extends StatefulWidget {
 class _DicePageState extends State<DicePage> {
   int leftDiceNumber = 1;
   int rightDiceNumber = 1;
+
+  void changeDiceFace() {
+    setState(() {  // 按下按鈕時要重新執行 build 來更新畫面
+      leftDiceNumber = Random().nextInt(5) + 1 ;
+      rightDiceNumber = Random().nextInt(5) + 1;
+      // print("Left button got pressed.");
+      // print("Right button got pressed.");
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -32,11 +42,7 @@ class _DicePageState extends State<DicePage> {
           Expanded(
             child: FlatButton(
               onPressed: (){
-                setState(() {  // 按下按鈕時要重新執行 build 來更新畫面
-                  leftDiceNumber = Random().nextInt(5) + 1 ;
-                  rightDiceNumber = Random().nextInt(5) + 1;
-                  // print("Left button got pressed.");
-                });
+                changeDiceFace();
               },
               child: Image.asset('images/dice$leftDiceNumber.png'),
             ),
@@ -44,11 +50,7 @@ class _DicePageState extends State<DicePage> {
           Expanded(
             child: FlatButton(
               onPressed: (){
-                setState(() {
-                  leftDiceNumber = Random().nextInt(5) + 1 ;
-                  rightDiceNumber = Random().nextInt(5) + 1;
-                  // print("Right button got pressed.");
-                });
+                changeDiceFace();
               },
               child: Image.asset('images/dice$rightDiceNumber.png'),
             ),
