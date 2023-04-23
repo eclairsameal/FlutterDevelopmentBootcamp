@@ -34,6 +34,7 @@ class _DicePageState extends State<DicePage> {
               onPressed: (){
                 setState(() {  // 按下按鈕時要重新執行 build 來更新畫面
                   leftDiceNumber = Random().nextInt(5) + 1 ;
+                  rightDiceNumber = Random().nextInt(5) + 1;
                   // print("Left button got pressed.");
                 });
               },
@@ -44,8 +45,9 @@ class _DicePageState extends State<DicePage> {
             child: FlatButton(
               onPressed: (){
                 setState(() {
+                  leftDiceNumber = Random().nextInt(5) + 1 ;
                   rightDiceNumber = Random().nextInt(5) + 1;
-                  print("Right button got pressed.");
+                  // print("Right button got pressed.");
                 });
               },
               child: Image.asset('images/dice$rightDiceNumber.png'),
